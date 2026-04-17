@@ -20,7 +20,7 @@ Embora a VM tivesse internet, baixei o arquivo no host e criei um servidor web t
 `python3 -m http.server 80`
 **Justificativa:** Isso evita o uso de navegadores na VM, que podem ser vetores de outros ataques, e mantém o ambiente de análise mais "puro".
 
-> **📍 [INCLUIR PRINT 1: Terminal com o comando Python no host e o download sendo feito na VM]**
+> **![Transferência Segura via Python](screenshots/01-transferencia-python-ps.png)**
 
 ---
 
@@ -33,14 +33,14 @@ A primeira tarefa foi garantir que o arquivo não estava corrompido e descobrir 
 * **Resultado:** `06727FFDA60359236A8029E0B3E8A0FD11C23313`.
 * **Descoberta:** O VirusTotal classificou o arquivo como um `Office Open XML Document`.
 
-> **📍 [INCLUIR PRINT 2: Janela do PowerShell mostrando o resultado do comando Get-FileHash]**
+> **![Verificação de Hash SHA1](screenshots/02-hash-sha1-verificacao.png)**
 
 ### Fase 2: Olhando "Debaixo do Capô" (Questões 3 e 4)
 Como o documento é na verdade um arquivo compactado (XML), usei o **7-Zip** para explorar as pastas internas.
 * **Onde achei o link:** No arquivo `word/_rels/document.xml.rels`.
 * **URL Maliciosa:** `https://www.xmlformats.com/office/word/2022/wordprocessingDrawing/RDF842L.html!`.
 
-> **📍 [INCLUIR PRINT 3: Editor de texto mostrando o código XML com o link malicioso destacado]**
+> **![Extração da URL Maliciosa](screenshots/03-analise-estatica-url-maliciosa.png)**
 
 ### Fase 3: Pesquisa Técnica - OSINT (Questões 5, 8 e 9)
 Nesta fase, utilizei técnicas de **OSINT (Open Source Intelligence)** consultando blogs de segurança (como Huntress e Elastic) para entender as regras do exploit.
@@ -63,4 +63,4 @@ Este laboratório foi fundamental para entender o conceito de **Living off the L
 ---
 **Status do Laboratório:** 100% Concluído.
 
-> **📍 [INCLUIR PRINT 4: Print final do site BTLO com as 9 questões marcadas como "Solved"]**
+> **![Conclusão do Desafio Follina](screenshots/04-conclusao-btlo-follina.png)**
